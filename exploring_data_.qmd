@@ -1,0 +1,48 @@
+---
+title: "Day 4 Part 2 Exploring Data"
+author: "Dalila Lara"
+format: html
+editor: visual
+---
+
+These lines of code are specific to quarto to remove any code to not appear in rendering file output.
+
+```{r}
+#| warning: false
+#| echo: false 
+library(tidyverse)
+library(palmerpenguins)
+library(GGally)
+library(skimr)
+```
+
+## Exploratory Data Visualization 
+
+### Check out data a bit: 
+
+The line of code below runs code to store objects if created put does not render on output
+
+```{r}
+#| include: false
+
+# Tell me the column names 
+names(penguins)
+
+# What are the dimensions?
+dim(penguins)
+
+# Can you show me the first 6 lines?
+head(penguins)
+
+# Can you show me the last 6 lines?
+tail(penguins)
+```
+
+Shows output but does not show code
+
+```{r}
+#| echo: false
+2 + 10
+```
+
+Other options exist where user can click (code folding) to see code.
