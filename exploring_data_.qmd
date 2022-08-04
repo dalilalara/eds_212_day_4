@@ -46,3 +46,56 @@ Shows output but does not show code
 ```
 
 Other options exist where user can click (code folding) to see code.
+
+### Quick summary of data with skim() function
+
+-   Mean
+
+-   Percentile
+
+-   Mini histogram
+
+```{r}
+skim(penguins)
+```
+
+### Large matrix of information
+
+-   several diffferent graphs for species
+
+-   quick overview summary for every variable on a data set
+
+```{r}
+# GGally::ggpairs(penguins)
+```
+
+## Jitterplot 
+
+Flipper length by species
+
+alpha = opacity
+
+Can custom color by entering line of code scale_color_manual
+
+Adding box plot to geom plot
+
+```{r}
+#| Fig = "My awesome figure caption"
+ggplot(data = penguins, aes(x = species, y = flipper_length_mm)) + 
+  geom_jitter(width = 0.2, 
+              alpha = 0.5,
+              height = 0,
+              aes(color = species)) +
+  geom_boxplot(fill = NA) +
+  theme_light() +
+  scale_color_manual(values = c("darkorchid4", "cyan4", "goldenrod")) +
+  labs(x = "Penguins Species", y = "flipper length (mm)", title = "Palmer Penguins")
+```
+
+## Histogram 
+only one variable
+
+```{r}
+ggplot(data = penguins, aes(x = bill_length_mm)) +
+         geom_histogram(aes(fill = species), color = "magenta") + facet_wrap(~species, ncol = 1)
+```
